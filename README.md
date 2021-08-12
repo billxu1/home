@@ -7,7 +7,7 @@ It shows off my upcoming projects!
 
 This is one of my first steps taken to my begin some personal projects.
 
-## Dependencies
+## Requirements
 N/A. It runs on Bootstrap (included in script tag) some custom CSS and raw HTML.
 
 ## Installation:
