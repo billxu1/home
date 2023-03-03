@@ -3,5 +3,5 @@ My very own website and it shows off my upcoming projects! (and my novice JavaSc
 
 This is one of my first steps taken to my begin some personal projects.
 
-## Requirements
+## Notes
 Currently a WIP to migrate to React
