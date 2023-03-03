@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Portfolio</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta name="description" content="A portfolio website that keeps track of personal projects.">
+        <meta charset="UTF-8">
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <style>
+            * {
+              font-family: Helvetica, Arial, sans-serif;
+            }
+            .mb-4 {
+              margin-bottom: 0rem !important;
+            } 
+            #navbarNav {
+              flex-direction: row-reverse;
+            }
+        </style>
+    </head>
+
+    <body>
+      
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <img src="favicon-32x32.png" alt="Brand Icon" width="24" height="24" class="d-inline-block align-text-top">
+            >_Bill
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="portfolio.html">Portfolio</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  
+      <section class="py-5 text-center container">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="portfolio.html">Portfolio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Discord bot</li>
+          </ol>
+        </nav>
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">My discord bot.</h1>
+            <p class="text-start">
+                <p class ='fw-bolder'>Bot usage:<p>
+                It keeps a leaderboard of the highest used words in a server and the most active members.
+                <hr>
+                <p class ='fw-bolder'>Languages used:<p>
+                This bot involved usage of Python and SQLite. 
+                <hr>
+                <p class ='fw-bolder'>Specific libraries/frameworks:<p>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Discord.py</li>
+                    <li class="list-group-item">SQLite3</li>
+                  </ul>
+                <hr>
+
+                <p class ='fw-bolder'>How it works:<p>
+                The bot uses discord.py to communicate with Discords API. It uses async and await methods in python.
+                It reacts to events when a message is sent in a server and obtains the text of the message sent and the author's nickname.
+                The bot then filters the message and adds it to an SQLite database that keeps track of the total words used in the server.
+                As well as this it keeps track of who sends a message with the SQLite database and keeps track of the number of messages sent.
+                When the data is requested, we take the SQLite data and outputs the highest used words and most active members
+            </p>
+            
+          </div>
+        </div>
+      </section>
+
+      
+      <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+          <div class="d-flex justify-content-between">
+            <span class="text-muted">Bill Xu.</span>
+              <a class = "text-muted" target="_blank"  href="https://github.com/billxu1">
+                GitHub
+                <img src="GitHub-Mark-32px.png" alt="GitHub icon" width="16" height="16" class="d-inline-block align-text-top">
+              </a>
+          </div>
+        </div>
+      </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    </body>
+</html>
