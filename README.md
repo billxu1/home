@@ -1,14 +1,7 @@
 # My portfolio website.
-
-## Description:
-My very own website! 
-
-It shows off my upcoming projects! 
+My very own website and it shows off my upcoming projects! (and my novice JavaScript skills!) 
 
 This is one of my first steps taken to my begin some personal projects.
 
 ## Requirements
-N/A. It runs on Bootstrap (included in script tag) some custom CSS and raw HTML.
-
-## Installation:
-Downloading the HTML files should allow you to have your own website.
+Currently a WIP to migrate to React
