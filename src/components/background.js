@@ -29,7 +29,7 @@ class App extends Component {
           how={80} /* You have to pass a number so Sky will render that amount of images chosen randomly from the object you passed in the previous step */
           time={10} /* time of the animation. Dfaults at 20s */
           size={'70px'} /* size of the rendered images. Defaults at 150px */
-          background={'palettedvioletred'} /* color of background. Defaults to none */
+          background={'#ffffcc'} /* color of background. Defaults to none */
         />
         </Background>
     );
