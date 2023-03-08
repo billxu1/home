@@ -4,4 +4,10 @@ My very own website and it shows off my upcoming projects! (and my novice JavaSc
 This is one of my first steps taken to my begin some personal projects.
 
 ## Notes
-Currently a WIP to migrate to React
+We have migrated to react! It is quite finnicky and I dont think I know enough, so it will be a WIP. However it is a better represenation of myself!.
+
+
+# Uses
+- MUI
+- ReactJS
+- React Sky (for the floating images)
