@@ -6,10 +6,13 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+import { useNavigate } from "react-router-dom";
+
 
 export default function BasicCard() {
+  const navigate = useNavigate();
   return (
-    <Box  sx={{ display:'flex', justifyContent: 'center', alignItems: 'center'}}> 
+    <Box  sx={{ display:'flex', justifyContent: 'center', alignItems: 'center', paddingTop:'18em'}}> 
     <Card sx={{ minWidth: 275, maxWidth: 500}}>
       <CardContent>
         <Typography variant="h5" component="div">
@@ -24,14 +27,11 @@ export default function BasicCard() {
           <br />
           <br />
         There was even an among us constellation but, I think its a nice compromise!
-
-            <br />
-            <br />
-        (If you see this pls help me i dont know how to center a div/or source an image properly the wok is accessed from the internet)
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" variant="outlined">My projects</Button>
+        
+        <Button size="small" variant="outlined" onClick={() => {navigate("/projects");}}>My projects</Button>
       </CardActions>
     </Card>
     </Box>

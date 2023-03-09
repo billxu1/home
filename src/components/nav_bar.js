@@ -8,29 +8,31 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 
+import { Link } from 'react-router-dom';
 
 function ResponsiveAppBar() {
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ background: '#96897B' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{justifyContent: 'space-around', gap: '20em'}}>
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/home"
+
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: 'black',
               textDecoration: 'none',
             }}
-          >
+          > 
+            <Link to='/'>
             Bill Xu
+            </Link>
           </Typography>
 
 

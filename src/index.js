@@ -11,6 +11,7 @@ import {
 
 
 import Homepage from './pages/homepage'
+import ProjectIndex from './pages/projectIndex'
 import NavBar from './components/nav_bar'
 import Image from './components/image'
 
@@ -22,6 +23,7 @@ root.render(
       <Routes>
         <Route path='' element={<Homepage />} />
         <Route path='/home' element={<Homepage />} />
+        <Route path='/projects' element={<ProjectIndex />} />
         
       
       </ Routes>
