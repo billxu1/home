@@ -1,7 +1,15 @@
 import { useParams } from 'react-router-dom'
 import { Card } from '../stories/components/BaseComponents/card/Card'
 
-const blogPosts = {
+type BlogPostType = {
+    title: string
+    description: string
+    date: string
+    image: string
+    tags: string[]
+}
+
+const blogPosts: Record<string, BlogPostType> = {
     'getting-started-with-react': {
         title: 'Getting Started with React',
         description: 'Learn the basics of React and how to build your first component.',
@@ -20,4 +28,9 @@ export default function BlogPost() {
     }
 
     return <Card {...post} />
+}
+
+export const Component = () => {
+    const { slug } = useParams()
+    return <div>Blog Post: {slug}</div>
 }

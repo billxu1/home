@@ -8,7 +8,7 @@ const featuredPost = {
     tags: ['React', 'JavaScript', 'Tutorial']
 }
 
-export function Component() {
+export const Component = () => {
     return (
         <section className="featured-post">
             <h2>Featured Post</h2>

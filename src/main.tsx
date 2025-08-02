@@ -11,13 +11,17 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        // We'll create this component later
-        lazy: () => import('./routes/Home')
+        lazy: async () => {
+          const { Component } = await import('./routes/Home')
+          return { Component }
+        }
       },
       {
         path: 'blog/:slug',
-        // We'll create this component later
-        lazy: () => import('./routes/BlogPost')
+        lazy: async () => {
+          const { Component } = await import('./routes/BlogPost')
+          return { Component }
+        }
       }
     ]
   }
