@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Development Servers",
+      "detail": "Starts both Vite dev server (port 5173) and Storybook (port 6006)",
+      "dependsOn": ["Start Vite", "Start Storybook"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Start Vite",
+      "type": "npm",
+      "script": "dev",
+      "problemMatcher": [],
+      "isBackground": true,
+      "presentation": {
+        "group": "dev-servers",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Start Storybook",
+      "type": "npm",
+      "script": "storybook",
+      "problemMatcher": [],
+      "isBackground": true,
+      "presentation": {
+        "group": "dev-servers",
+        "panel": "dedicated"
+      }
+    }
+  ]
+}

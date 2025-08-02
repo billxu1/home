@@ -1,4 +1,7 @@
 # Notes
+This website is using
+- React + TypeScript + Vite as CRA is deprecated
+
 ```sh
 npm create vite@latest my-app --template react
 mv my-app/* .
@@ -6,11 +9,13 @@ npm install
 npm run dev
 ```
 
+## some notes
+- The build CI step runs a build and deploys it to pages.
+- The DNS resolver is linked to a Route53 resolver on AWS (there exists an A record hardlinked to GitHub pages IP's).
+- The SSL certificate is provisioned by Github pages (managed through click ops) TODO: Use IaC to deploy AWS templates (private Github repo + vault setup tbd)
+
 # boiler plate vite stuff
 <details>
-# React + TypeScript + Vite
-
-
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
