@@ -1,0 +1,43 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+
+    // Remove the red background
+    // background-color: #ff0000c8;
+}
+
+
+
+@import 'index.scss'
+
+// // // Abstracts
+// // @import 'abstracts/variables';
+// // @import 'abstracts/mixins';
+// // @import 'abstracts/functions';
+
+// // // Base styles
+// // @import 'base/reset';
+// // @import 'base/typography';
+
+// // // Components
+// // @import 'components/buttons';
+// // @import 'components/header';
+
+// // // Layouts
+// // @import 'layouts/navigation';
+// // @import 'layouts/grid';
+
+// // // Themes
+// // @import 'themes/dark';
+// // @import 'themes/light';
