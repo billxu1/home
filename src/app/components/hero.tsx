@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
   return (
     <main className={mainClasses}>
       <Image 
-        src="https://media.licdn.com/dms/image/v2/D5603AQH_khTvM8m0GA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1727917902527?e=1758153600&v=beta&t=qoEzYSc_NMSopKPPBeeVBI42ExkqMEVsX4nT1BfG9UY"
+        src="src/assets/linkedin.jpg"
         alt="Bill Xu"
         className="w-32 h-32 rounded-full shadow-md"
       />
@@ -93,9 +93,9 @@ const Hero: React.FC = () => {
         <a href="https://www.linkedin.com/in/billxu44/" target="_blank" className={socialClasses}>
           <Linkedin className="w-4 h-4" /> LinkedIn
         </a>
-        <a href="mailto:john@example.com" className={socialClasses}>
+        {/* <a href="mailto:john@example.com" className={socialClasses}>
           <Mail className="w-4 h-4" /> Contact
-        </a>
+        </a> */}
       </div>
 
       <div className="flex gap-4 mt-8">
