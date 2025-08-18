@@ -18,15 +18,15 @@ const Hero: React.FC = () => {
     (theme === "dark"
       ? "bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500"   // Dark mode
       : "bg-gradient-to-r from-blue-400 via-emerald-400 to-yellow-400"); // Light mode
-    const subtitleClasses =
+  const subtitleClasses =
     "mt-4 text-lg md:text-xl max-w-2xl " +
     (theme === "dark" ? "text-gray-300" : "text-gray-600");
 
   const skillClasses =
-    theme === "dark"
-      ? "px-3 py-1 text-sm rounded-full bg-zinc-700 text-gray-200"
-      : "px-3 py-1 text-sm rounded-full bg-gray-100 text-gray-700";
-
+    "px-3 py-1 text-sm rounded-full transition-colors duration-300 " +
+    (theme === "dark"
+    ? "bg-blue-800 text-blue-100"   // Dark mode: deep blue background, light text
+    : "bg-blue-200 text-blue-800"); // Light mode: soft pastel blue background, dark text
   const socialClasses =
     theme === "dark"
       ? "flex items-center gap-2 px-4 py-2 border rounded-lg text-gray-200 border-gray-700 hover:bg-gray-800"
