@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, Menu, X } from "lucide-react";
 import Link from "next/link";
 
 const sections = ["about", "portfolio", "blog", "contact"];
@@ -9,6 +9,7 @@ const sections = ["about", "portfolio", "blog", "contact"];
 const Navbar: React.FC = () => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [activeSection, setActiveSection] = useState<string>("");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Load theme from localStorage or system preference
   useEffect(() => {
@@ -41,7 +42,7 @@ const Navbar: React.FC = () => {
           }
         });
       },
-      { threshold: 0.6 } // section is active when 60% visible
+      { threshold: 0.6 }
     );
 
     sections.forEach((id) => {
@@ -65,8 +66,8 @@ const Navbar: React.FC = () => {
           Bill <span className="font-normal">Xu</span>
         </Link>
 
-        {/* Links */}
-        <div className="flex items-center gap-6 text-gray-700 dark:text-gray-200">
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-6 text-gray-700 dark:text-gray-200">
           {sections.map((id) => (
             <a
               key={id}
@@ -93,7 +94,51 @@ const Navbar: React.FC = () => {
             )}
           </button>
         </div>
+
+        {/* Hamburger Menu Button */}
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          >
+            {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800 transition-all">
+          <div className="flex flex-col items-start px-6 py-4 gap-4">
+            {sections.map((id) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                onClick={() => setMenuOpen(false)}
+                className={`hover:text-blue-500 transition-colors ${
+                  activeSection === id
+                    ? "text-blue-600 dark:text-blue-400 font-semibold"
+                    : ""
+                }`}
+              >
+                {id.charAt(0).toUpperCase() + id.slice(1)}
+              </a>
+            ))}
+
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors mt-2"
+            >
+              {theme === "light" ? (
+                <Moon className="w-5 h-5" />
+              ) : (
+                <Sun className="w-5 h-5 text-yellow-400" />
+              )}
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
