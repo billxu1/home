@@ -14,10 +14,11 @@ const Hero: React.FC = () => {
     (theme === "dark" ? "bg-gray-800" : "bg-white");
 
   const nameClasses =
-    "mt-6 text-4xl md:text-6xl font-bold " +
-    (theme === "dark" ? "text-white" : "text-gray-900");
-
-  const subtitleClasses =
+    "mt-6 text-4xl md:text-6xl font-bold text-transparent bg-clip-text animate-rainbow " +
+    (theme === "dark"
+      ? "bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500"   // Dark mode
+      : "bg-gradient-to-r from-blue-400 via-emerald-400 to-yellow-400"); // Light mode
+    const subtitleClasses =
     "mt-4 text-lg md:text-xl max-w-2xl " +
     (theme === "dark" ? "text-gray-300" : "text-gray-600");
 
@@ -40,11 +41,6 @@ const Hero: React.FC = () => {
     theme === "dark"
       ? "px-6 py-3 rounded-lg border text-gray-200 border-gray-700 hover:bg-gray-800"
       : "px-6 py-3 rounded-lg border text-gray-700 hover:bg-gray-100";
-
-  const toggleButtonClasses =
-    theme === "dark"
-      ? "mt-8 px-4 py-2 rounded-lg border border-gray-600 text-gray-200"
-      : "mt-8 px-4 py-2 rounded-lg border border-gray-300 text-gray-700";
 
   return (
     <main className={mainClasses}>
