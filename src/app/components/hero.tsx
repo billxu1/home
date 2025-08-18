@@ -5,15 +5,8 @@ import { Github, Linkedin } from "lucide-react";
 import Image from "next/image";
 
 const Hero: React.FC = () => {
-  const [theme, setTheme] = useState<"light" | "dark" | null>(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("theme") as "light" | "dark" | null;
-      if (stored) return stored;
-      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    return null; // SSR fallback
-  });
-  
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
+
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
     if (savedTheme) {
