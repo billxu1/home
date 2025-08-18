@@ -3,34 +3,13 @@
 import React, { useEffect, useState } from "react";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import Link from "next/link";
-
+import { useTheme } from "@/app/context/ThemeContext";
 const sections = ["about", "portfolio", "blog", "contact"];
 
 const Navbar: React.FC = () => {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const { theme, toggleTheme } = useTheme(); // <-- use global theme
   const [activeSection, setActiveSection] = useState<string>("");
   const [menuOpen, setMenuOpen] = useState(false);
-
-  // Load theme from localStorage or system preference
-  useEffect(() => {
-    const storedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    if (storedTheme) {
-      setTheme(storedTheme);
-      document.documentElement.classList.toggle("dark", storedTheme === "dark");
-    } else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setTheme(prefersDark ? "dark" : "light");
-      document.documentElement.classList.toggle("dark", prefersDark);
-    }
-  }, []);
-
-  // Toggle theme
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    document.documentElement.classList.toggle("dark", newTheme === "dark");
-  };
 
   // Track active section with IntersectionObserver
   useEffect(() => {
@@ -106,7 +85,7 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu (takes up space, pushes content down) */}
+      {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800 transition-all">
           <div className="flex flex-col items-start px-6 py-4 gap-4">
