@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
       <p className={subtitleClasses}>
         This website is a work in progress!
         <br />
-        Full-stack developer passionate about creating beautiful, functional web experiences
+        Full-stack developer driven by curiosity, connection, and continuous improvement
       </p>
 
       <div className="flex flex-wrap justify-center gap-2 mt-6">
