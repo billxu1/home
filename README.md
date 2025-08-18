@@ -2,13 +2,20 @@
 this has been updated to use nextjs
 
 # next js
+```sh
 npx create-next-app@latest
 npm run dev
 npm run build
+```
 
-# for the vite/typescript/react/storybook branch - goto react-vite-storybook branch
-This website is using
-- React + TypeScript + Vite as CRA is deprecated
+## some notes
+- The build CI step runs a build and deploys it to pages.
+- The DNS resolver is linked to a Route53 resolver on AWS (there exists an A record hardlinked to GitHub pages IP's).
+- The SSL certificate is provisioned by Github pages (managed through click ops) TODO: Use IaC to deploy AWS templates (private Github repo + vault setup tbd)
+
+
+# for vite
+- goto react-vite-storybook branch for the vite/typescript/react/storybook branch - CRA is deprecated
 
 ```sh
 npm create vite@latest my-app --template react
@@ -16,11 +23,6 @@ mv my-app/* .
 npm install
 npm run dev
 ```
-
-## some notes
-- The build CI step runs a build and deploys it to pages.
-- The DNS resolver is linked to a Route53 resolver on AWS (there exists an A record hardlinked to GitHub pages IP's).
-- The SSL certificate is provisioned by Github pages (managed through click ops) TODO: Use IaC to deploy AWS templates (private Github repo + vault setup tbd)
 
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
