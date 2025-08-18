@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
+import Image from "next/image";
 
 const Hero: React.FC = () => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -63,13 +64,13 @@ const Hero: React.FC = () => {
 
   return (
     <main className={mainClasses}>
-      <img
+      <Image 
         src="https://media.licdn.com/dms/image/v2/D5603AQH_khTvM8m0GA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1727917902527?e=1758153600&v=beta&t=qoEzYSc_NMSopKPPBeeVBI42ExkqMEVsX4nT1BfG9UY"
         alt="Bill Xu"
         className="w-32 h-32 rounded-full shadow-md"
       />
 
-      <h1 className={nameClasses}>Hi, I'm Bill Xu</h1>
+      <h1 className={nameClasses}>Hi, I&apos;m Bill Xu</h1>
 
       <p className={subtitleClasses}>
         this website is a work in progress!
