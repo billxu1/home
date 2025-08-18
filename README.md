@@ -5,7 +5,7 @@ this has been updated to use nextjs
 ```sh
 npx create-next-app@latest
 npm run dev
-npm run build
+npm run build && npx serve@latest out
 ```
 
 ## some notes

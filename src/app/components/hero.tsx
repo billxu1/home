@@ -1,12 +1,19 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import Image from "next/image";
 
 const Hero: React.FC = () => {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-
+  const [theme, setTheme] = useState<"light" | "dark" | null>(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("theme") as "light" | "dark" | null;
+      if (stored) return stored;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    return null; // SSR fallback
+  });
+  
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
     if (savedTheme) {
@@ -64,12 +71,14 @@ const Hero: React.FC = () => {
 
   return (
     <main className={mainClasses}>
-      <Image 
-        src="src/assets/linkedin.jpg"
+      <Image
+        src="/image/linkedin.jpg"
         alt="Bill Xu"
-        className="w-32 h-32 rounded-full shadow-md"
+        width={128}
+        height={128}
+        className="rounded-full shadow-md"
+        unoptimized // ← tells Next.js not to optimize, works for static export
       />
-
       <h1 className={nameClasses}>Hi, I&apos;m Bill Xu</h1>
 
       <p className={subtitleClasses}>
