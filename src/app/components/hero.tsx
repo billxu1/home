@@ -4,20 +4,22 @@ import React from "react";
 import { Github, Linkedin } from "lucide-react";
 import Image from "next/image";
 import { useTheme } from "../context/ThemeContext";
+import Projects from "./CardsScreen/Cards";
 
 const Hero: React.FC = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
 
-  // CSS class strings based on theme
+  // Section wrapper
   const mainClasses =
-    "flex flex-col items-center justify-center min-h-screen px-4 text-center transition-colors duration-300 " +
+    "flex flex-col items-center justify-center h-screen px-4 text-center transition-colors duration-300 " +
     (theme === "dark" ? "bg-gray-800" : "bg-white");
 
   const nameClasses =
     "mt-6 text-4xl md:text-6xl font-bold text-transparent bg-clip-text animate-rainbow " +
     (theme === "dark"
-      ? "bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500"   // Dark mode
-      : "bg-gradient-to-r from-blue-400 via-emerald-400 to-yellow-400"); // Light mode
+      ? "bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500"
+      : "bg-gradient-to-r from-blue-400 via-emerald-400 to-yellow-400");
+
   const subtitleClasses =
     "mt-4 text-lg md:text-xl max-w-2xl " +
     (theme === "dark" ? "text-gray-300" : "text-gray-600");
@@ -25,8 +27,9 @@ const Hero: React.FC = () => {
   const skillClasses =
     "px-3 py-1 text-sm rounded-full transition-colors duration-300 " +
     (theme === "dark"
-    ? "bg-blue-800 text-blue-100"   // Dark mode: deep blue background, light text
-    : "bg-blue-200 text-blue-800"); // Light mode: soft pastel blue background, dark text
+      ? "bg-blue-800 text-blue-100"
+      : "bg-blue-200 text-blue-800");
+
   const socialClasses =
     theme === "dark"
       ? "flex items-center gap-2 px-4 py-2 border rounded-lg text-gray-200 border-gray-700 hover:bg-gray-800"
@@ -41,65 +44,95 @@ const Hero: React.FC = () => {
     theme === "dark"
       ? "px-6 py-3 rounded-lg border text-gray-200 border-gray-700 hover:bg-gray-800"
       : "px-6 py-3 rounded-lg border text-gray-700 hover:bg-gray-100";
-
+  
+  // Updated `sectionClasses` to use a more off-white color
+  const sectionClasses = theme === "dark" ? "bg-zinc-900" : "bg-gray-50";
   return (
-    <main className={mainClasses}>
-      <Image
-        src="/image/linkedin.jpg"
-        alt="Bill Xu"
-        width={128}
-        height={128}
-        className="rounded-full shadow-md"
-        unoptimized
-      />
-      <h1 className={nameClasses}>Hi, I&apos;m Bill Xu</h1>
+    <>
+      {/* Hero Section */}
+      <section className={mainClasses}>
+        <Image
+          src="/image/linkedin.jpg"
+          alt="Bill Xu"
+          width={128}
+          height={128}
+          className="rounded-full shadow-md"
+          unoptimized
+        />
+        <h1 className={nameClasses}>Hi, I&apos;m Bill Xu</h1>
 
-      <p className={subtitleClasses}>
-        This website is a work in progress!
-        <br />
-        Full-stack developer driven by curiosity, connection, and continuous improvement
-      </p>
+        <p className={subtitleClasses}>
+          This website is a work in progress!
+          <br />
+          Full-stack developer driven by curiosity, connection, and continuous
+          improvement
+        </p>
 
-      <div className="flex flex-wrap justify-center gap-2 mt-6">
-        {["React", "TypeScript", "Node.js", "Python", "Tailwind CSS", "Next.js"].map(
-          (skill) => (
+        <div className="flex flex-wrap justify-center gap-2 mt-6">
+          {[
+            "React",
+            "TypeScript",
+            "Node.js",
+            "Python",
+            "Tailwind CSS",
+            "Next.js",
+          ].map((skill) => (
             <span key={skill} className={skillClasses}>
               {skill}
             </span>
-          )
-        )}
-      </div>
+          ))}
+        </div>
 
-      <div className="flex gap-4 mt-6">
+        <div className="flex gap-4 mt-6">
+          <a
+            href="https://github.com/billxu1/home"
+            target="_blank"
+            className={socialClasses}
+          >
+            <Github className="w-4 h-4" /> GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/billxu44/"
+            target="_blank"
+            className={socialClasses}
+          >
+            <Linkedin className="w-4 h-4" /> LinkedIn
+          </a>
+        </div>
+
+        <div className="flex gap-4 mt-8">
+          <a href="#work" className={workButtonClasses}>
+            View My Work
+          </a>
+          <a href="#blog" className={blogButtonClasses}>
+            Read My Blog
+          </a>
+        </div>
+      <div className="mt-8">
+
+        {/* Scroll-to-next button */}
         <a
-          href="https://github.com/billxu1/home"
-          target="_blank"
-          className={socialClasses}
+          href="#projects"
+          className={`flex items-center justify-center w-12 h-12 rounded-lg  transition-colors duration-200 ${
+            theme === "dark"
+              ? "bg-gray-700 text-gray-300 hover:bg-gray-600"
+              : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+          }`}
         >
-          <Github className="w-4 h-4" /> GitHub
-        </a>
-        <a
-          href="https://www.linkedin.com/in/billxu44/"
-          target="_blank"
-          className={socialClasses}
-        >
-          <Linkedin className="w-4 h-4" /> LinkedIn
+          <span>↓</span>
         </a>
       </div>
 
-      <div className="flex gap-4 mt-8">
-        <a href="#work" className={workButtonClasses}>
-          View My Work
-        </a>
-        <a href="#blog" className={blogButtonClasses}>
-          Read My Blog
-        </a>
-      </div>
+      </section>
 
-      <div className="mt-12 animate-bounce">
-        <span className={theme === "dark" ? "text-gray-400" : ""}>↓</span>
-      </div>
-    </main>
+      {/* Projects Section */}
+      {/* <section id="work" className={sectionClasses}>
+        <Projects />
+      </section> */}
+      <section id="work" className={`min-h-screen px-4 py-20 ${sectionClasses}`}>
+        <Projects />
+      </section>
+    </>
   );
 };
 

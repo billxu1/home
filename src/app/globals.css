@@ -34,3 +34,7 @@ body {
   background-size: 200% 200%;
   animation: rainbow 5s linear infinite;
 }
+
+html {
+  scroll-behavior: smooth;
+}

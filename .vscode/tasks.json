@@ -1,18 +1,6 @@
 {
   "version": "2.0.0",
   "tasks": [
-
-    // {
-    //   "label": "Start NextJs",
-    //   "type": "npm",
-    //   "script": "dev",
-    //   "problemMatcher": [],
-    //   "isBackground": true,
-    //   "presentation": {
-    //     "group": "dev-servers",
-    //     "panel": "dedicated"
-    //   }
-    // },
     {
       "label": "Start Development Servers",
       "detail": "Starts both Vite dev server (port 5173) and Storybook (port 6006)",
@@ -41,6 +29,17 @@
       "label": "Start Storybook",
       "type": "npm",
       "script": "storybook",
+      "problemMatcher": [],
+      "isBackground": true,
+      "presentation": {
+        "group": "dev-servers",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Start nextjs",
+      "type": "npm",
+      "script": "dev",
       "problemMatcher": [],
       "isBackground": true,
       "presentation": {
