@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
         <h1 className={nameClasses}>Hi, I&apos;m Bill Xu</h1>
 
         <p className={subtitleClasses}>
-          This website is a work in progress!
+          This website is a work in progress!; todo = footer/blank links (duplication of view my work/down arrow)
           <br />
           Full-stack developer driven by curiosity, connection, and continuous
           improvement
