@@ -9,7 +9,7 @@ const projects = [
     {
     title: "Portfolio Website",
     description:
-      "This portfolio website was a personal project to challenge my frontend skills and eye for design. Using a detailed Figma prototype as the blueprint, I meticulously crafted the site with Next.js. This process allowed me to translate a precise visual design into a functional, performant web application, showcasing my curiosity and attention to detail in modern frontend development.",
+      "This portfolio website was a personal project to challenge my frontend skills and eye for design. Using a detailed Figma prototype as the blueprint, I used Next.js. This process allowed me to translate a precise visual design into a functional, performant web application, showcasing my curiosity and attention to detail in modern frontend development.",
     image: "https://placehold.co/600x400/27272a/FFF?text=Portfolio+Website",
     tags: ["Next.js", "Figma", "Frontend Development"],
           link: "https://github.com/billxu1/home", // Add a live link to the portfolio site here
@@ -18,7 +18,7 @@ const projects = [
   {
     title: "Discord Stats Analyser",
     description:
-      "A Discord bot that uses a SQLite database to track server activity. It analyzes messages to generate leaderboards for the most active users and most frequently used words. Initially developed to track an inside joke, the project evolved into an interesting challenge in data collection and analysis, providing valuable insights into server engagement.",
+      "A Discord bot that uses a SQLite database to track server activity. It analyzes messages to generate leaderboards for the most active users and most frequently used words (data does not persist - unless deployed on a container). Initially developed for an inside joke, the project evolved into an interesting project teaching me data collection and analysis, providing valuable insights into server engagement.",
     image: "https://placehold.co/600x400/27272a/FFF?text=Discord+Bot",
     tags: ["Discord Bot", "SQLite", "Python", "Data Analysis"],
         link: "https://github.com/billxu1/discord-stats-analyser", // Add a live link to the portfolio site here
