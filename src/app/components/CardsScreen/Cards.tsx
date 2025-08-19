@@ -2,9 +2,7 @@
 
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import { useTheme
-
- } from "@/app/context/ThemeContext";
+import { useTheme} from "@/app/context/ThemeContext";
 const projects = [
     {
     title: "Portfolio Website",
@@ -38,7 +36,7 @@ const projects = [
 const Projects: React.FC = () => {
   const { theme } = useTheme();
 
-    const [showScroll, setShowScroll] = useState(false);
+  const [showScroll, setShowScroll] = useState(false);
   // Function to scroll to the top of the page smoothly
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
