@@ -6,48 +6,38 @@ import Hero from "./components/Hero/Hero";
 import Footer from "./components/Footer/Footer";
 
 export default function Home() {
-  const sectionIds = ["hero", "projects"];
-  const snapDownBuffer = 150; // px from top to snap down
-  const snapUpMinDistance = window.innerHeight * 0.8; // 80% of viewport
   const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       if (isScrolling) return;
 
-      const currentSectionIndex = sectionIds.findIndex(id => {
-        const section = document.getElementById(id);
-        if (!section) return false;
-        const rect = section.getBoundingClientRect();
+      const hero = document.getElementById("hero");
+      const projects = document.getElementById("projects");
+      if (!hero || !projects) return;
 
-        if (e.deltaY > 0) {
-          // scroll down, snap quickly
-          return rect.top <= snapDownBuffer && rect.bottom >= snapDownBuffer;
-        } else if (e.deltaY < 0) {
-          // scroll up, only snap if section top is far enough down
-          return rect.top > snapUpMinDistance && rect.top <= snapUpMinDistance + 100; 
-        }
-        return false;
-      });
+      const heroRect = hero.getBoundingClientRect();
+      const projectsRect = projects.getBoundingClientRect();
 
-      if (currentSectionIndex === -1) return; // no snap, normal scrolling
-
-      let nextSectionIndex = currentSectionIndex;
+      let target: HTMLElement | null = null;
 
       if (e.deltaY > 0) {
-        nextSectionIndex = Math.min(currentSectionIndex + 1, sectionIds.length - 1);
+        // Scroll down
+        if (heroRect.bottom > 0) {
+          target = projects; // snap Hero -> Projects
+        }
       } else if (e.deltaY < 0) {
-        nextSectionIndex = Math.max(currentSectionIndex - 1, 0);
+        // Scroll up
+        if (projectsRect.top < window.innerHeight && projectsRect.top > 100) {
+          target = hero; // snap Projects -> Hero
+        }
       }
 
-      if (nextSectionIndex === currentSectionIndex) return;
-
-      const nextSection = document.getElementById(sectionIds[nextSectionIndex]);
-      if (nextSection) {
+      if (target) {
         e.preventDefault();
         setIsScrolling(true);
         window.scrollTo({
-          top: nextSection.offsetTop,
+          top: target.offsetTop,
           behavior: "smooth",
         });
         setTimeout(() => setIsScrolling(false), 800);

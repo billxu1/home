@@ -6,7 +6,12 @@ import Image from "next/image";
 import { useTheme } from "@/app/context/ThemeContext";
 
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  id?: string;
+  className?: string;
+}
+
+const Hero: React.FC<HeroProps> = ({ id, className }) => {
   const { theme } = useTheme();
 
   // Section wrapper
@@ -48,7 +53,7 @@ const Hero: React.FC = () => {
   // Updated `sectionClasses` to use a more off-white color
   const sectionClasses = theme === "dark" ? "bg-zinc-900" : "bg-gray-50";
   return (
-    <section className={mainClasses} id="hero"> 
+    <section id={id} className={mainClasses} > 
       <Image
         src="/image/linkedin.jpg"
         alt="Bill Xu"
