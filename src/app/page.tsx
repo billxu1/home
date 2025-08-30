@@ -2,78 +2,62 @@
 
 import { useEffect, useState } from "react";
 import Projects from "./components/CardsScreen/Cards";
-import Hero
- from "./components/Hero/Hero";
-import Contact from "./components/Contact/Contact";
+import Hero from "./components/Hero/Hero";
+import Footer from "./components/Footer/Footer";
 
 export default function Home() {
+  const sectionIds = ["hero", "projects"];
+  const snapBuffer = 150; // px from top to trigger snapping
   const [isScrolling, setIsScrolling] = useState(false);
-  const sectionIds = ["hero", "projects", "contact"];
 
   useEffect(() => {
-    // This function handles the scroll wheel event to snap to sections
-    const handleScroll = (e: WheelEvent) => {
-      // Prevent the default browser scroll behavior
-      e.preventDefault();
+    const handleWheel = (e: WheelEvent) => {
+      if (isScrolling) return;
 
-      // If a scroll action is already in progress, ignore subsequent events
-      if (isScrolling) {
-        return;
-      }
-
-      // Determine the current section based on scroll position
+      // Determine which section is near the top
       const currentSectionIndex = sectionIds.findIndex(id => {
         const section = document.getElementById(id);
         if (!section) return false;
         const rect = section.getBoundingClientRect();
-        return rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
+        // trigger snap if section top is within snapBuffer
+        return rect.top <= snapBuffer && rect.bottom >= snapBuffer;
       });
+
+      if (currentSectionIndex === -1) return; // no section near top, normal scrolling
 
       let nextSectionIndex = currentSectionIndex;
 
-      // Check scroll direction (e.deltaY > 0 for down, e.deltaY < 0 for up)
       if (e.deltaY > 0) {
-        // Scrolling down
+        // scrolling down
         nextSectionIndex = Math.min(currentSectionIndex + 1, sectionIds.length - 1);
-      } else {
-        // Scrolling up
+      } else if (e.deltaY < 0) {
+        // scrolling up
         nextSectionIndex = Math.max(currentSectionIndex - 1, 0);
       }
 
-      // Get the target section element and its position
-      const nextSectionId = sectionIds[nextSectionIndex];
-      const nextSection = document.getElementById(nextSectionId);
+      if (nextSectionIndex === currentSectionIndex) return; // already at target
 
+      const nextSection = document.getElementById(sectionIds[nextSectionIndex]);
       if (nextSection) {
+        e.preventDefault();
         setIsScrolling(true);
         window.scrollTo({
           top: nextSection.offsetTop,
-          behavior: "smooth"
+          behavior: "smooth",
         });
-
-        // Use a timeout to reset the scrolling state after the animation finishes
-        // This prevents multiple scroll actions from firing in rapid succession
-        setTimeout(() => {
-          setIsScrolling(false);
-        }, 1000); // 1000ms, matching the smooth scroll duration
+        setTimeout(() => setIsScrolling(false), 800);
       }
     };
 
-    // Add the wheel event listener to the window
-    window.addEventListener("wheel", handleScroll, { passive: false });
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener("wheel", handleScroll, { passive: false });
-    };
-  }, [isScrolling]); // Dependency on isScrolling to prevent re-creating the handler
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    return () => window.removeEventListener("wheel", handleWheel);
+  }, [isScrolling]);
 
   return (
-    
     <div>
-      <Hero />
-      <Projects />
-      <Contact />
+      <Hero id="hero" className="min-h-screen" />
+      <Projects id="projects" className="min-h-screen" />
+      <Footer /> {/* slim static footer */}
     </div>
   );
 }
