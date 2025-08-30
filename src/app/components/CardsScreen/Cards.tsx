@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { useTheme } from "@/app/context/ThemeContext";
+import Image from "next/image";
 
 interface Project {
   title: string;
@@ -23,7 +24,7 @@ const defaultProjects: Project[] = [
     title: "Portfolio Website",
     description:
       "This portfolio website was a personal project to challenge my frontend skills and eye for design. Using a detailed Figma prototype as the blueprint, I used Next.js. This process allowed me to translate a precise visual design into a functional, performant web application, showcasing my curiosity and attention to detail in modern frontend development.",
-    image: "https://placehold.co/600x400/27272a/FFF?text=Portfolio+Website",
+    image: "/image/website-stock.jpg",
     tags: ["Next.js", "Figma", "Frontend Development"],
     link: "https://github.com/billxu1/home", // Add a live link to the portfolio site here
   },
@@ -31,7 +32,7 @@ const defaultProjects: Project[] = [
     title: "Discord Stats Analyser",
     description:
       "A Discord bot that uses a SQLite database to track server activity. It analyzes messages to generate leaderboards for the most active users and most frequently used words (data does not persist - unless deployed on a container). Initially developed for an inside joke, the project evolved into an interesting project teaching me data collection and analysis, providing valuable insights into server engagement.",
-    image: "https://placehold.co/600x400/27272a/FFF?text=Discord+Bot",
+    image: "/image/discord-image.jpg",
     tags: ["Discord Bot", "SQLite", "Python", "Data Analysis"],
     link: "https://github.com/billxu1/discord-stats-analyser", // Add a live link to the portfolio site here
   },
@@ -39,7 +40,7 @@ const defaultProjects: Project[] = [
     title: "Recipe Backstory Skipper",
     description:
       "A Chrome extension that skips the lengthy backstories found on many recipe blogs, taking you directly to the instructions. It also adds a convenient 'back to top' button for easy navigation. This project was born from the need to quickly compare multiple recipes and is shared in hopes it provides value to others. It currently works on a select number of websites, with room for future extension.",
-    image: "https://placehold.co/600x400/27272a/FFF?text=Chrome+Extension",
+    image: "/image/chrome.jpg",
     tags: ["Chrome Extension", "HTML/CSS", "JavaScript", "Web Development"],
     link: "https://github.com/billxu1/recipe-chrome-extension", // Add a live link to the portfolio site here
   },
@@ -139,9 +140,11 @@ const Projects: React.FC<ProjectsProps> = ({
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
+                width={400}
+                height={600}
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
@@ -170,9 +173,8 @@ const Projects: React.FC<ProjectsProps> = ({
       {/* Scroll to Top Button */}
       <motion.button
         onClick={scrollTop}
-        className={`fixed bottom-4 right-4 p-4 rounded-full text-white shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-gray-400 z-50 ${
-          showScroll ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-        }`}
+        className={`fixed bottom-4 right-4 p-4 rounded-full text-white shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-gray-400 z-50 ${showScroll ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}
         style={{
           backgroundColor: theme === "dark" ? "#6b7280" : "#4b5563",
         }}
