@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className="w-full border-b bg-white dark:bg-black dark:border-gray-800 transition-colors duration-300 z-50">
+    <nav className="w-full border-b bg-white dark:bg-zinc-900 dark:border-zinc-800 transition-colors duration-300 z-50">
       <div className="flex items-center justify-between max-w-6xl mx-auto px-6 py-4">
         {/* Logo */}
         <Link href="/" className="text-lg font-bold text-gray-900 dark:text-white">
@@ -51,11 +51,10 @@ const Navbar: React.FC = () => {
             <a
               key={id}
               href={`#${id}`}
-              className={`hover:text-blue-500 transition-colors ${
-                activeSection === id
+              className={`hover:text-blue-500 transition-colors ${activeSection === id
                   ? "text-blue-600 dark:text-blue-400 font-semibold"
                   : ""
-              }`}
+                }`}
             >
               {id.charAt(0).toUpperCase() + id.slice(1)}
             </a>
@@ -87,18 +86,17 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800 transition-all">
+        <div className="md:hidden bg-white dark:bg-zinc-900 border-t border-gray-200 dark:border-zinc-800 transition-all">
           <div className="flex flex-col items-start px-6 py-4 gap-4">
             {sections.map((id) => (
               <a
                 key={id}
                 href={`#${id}`}
                 onClick={() => setMenuOpen(false)}
-                className={`hover:text-blue-500 transition-colors ${
-                  activeSection === id
+                className={`hover:text-blue-500 transition-colors ${activeSection === id
                     ? "text-blue-600 dark:text-blue-400 font-semibold"
                     : ""
-                }`}
+                  }`}
               >
                 {id.charAt(0).toUpperCase() + id.slice(1)}
               </a>

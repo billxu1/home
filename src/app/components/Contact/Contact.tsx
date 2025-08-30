@@ -1,6 +1,5 @@
 
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
 import { useTheme} from "@/app/context/ThemeContext";
 
 
@@ -45,7 +44,7 @@ const Contact: React.FC = () => {
         transition={{ delay: 0.2, duration: 0.6 }}
         viewport={{ once: true }}
       >
-        I'm currently open to new opportunities. Feel free to reach out!
+        I&apos;m currently open to new opportunities. Feel free to reach out!
       </motion.p>
 
       <form className="mt-12 w-full max-w-xl">

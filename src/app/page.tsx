@@ -15,8 +15,8 @@ export default function Home() {
     const handleWheel = (e: WheelEvent) => {
       if (isScrolling) return;
 
-      const hero = document.getElementById(sections.hero);
-      const projects = document.getElementById(sections.projects);
+      const hero = document.getElementById("hero");
+      const projects = document.getElementById("projects");
       if (!hero || !projects) return;
 
       const heroRect = hero.getBoundingClientRect();
@@ -25,27 +25,23 @@ export default function Home() {
       let target: HTMLElement | null = null;
 
       if (e.deltaY > 0 && heroRect.bottom > 0) {
-        // Scroll down → snap Hero → Projects
         target = projects;
       } else if (e.deltaY < 0 && projectsRect.top > scrollUpMinDistance) {
-        // Scroll up → snap Projects → Hero
         target = hero;
       }
 
       if (target) {
         e.preventDefault();
         setIsScrolling(true);
-        window.scrollTo({
-          top: target.offsetTop,
-          behavior: "smooth",
-        });
+        window.scrollTo({ top: target.offsetTop, behavior: "smooth" });
         setTimeout(() => setIsScrolling(false), 800);
       }
     };
 
     window.addEventListener("wheel", handleWheel, { passive: false });
     return () => window.removeEventListener("wheel", handleWheel);
-  }, [isScrolling]);
+  }, [isScrolling]); // ✅ only include state that affects the effect
+
 
   return (
     <div>

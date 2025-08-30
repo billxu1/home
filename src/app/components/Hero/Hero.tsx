@@ -50,11 +50,11 @@ const Hero: React.FC<HeroProps> = ({ id, className }) => {
       ? "px-6 py-3 rounded-lg border text-gray-200 border-gray-700 hover:bg-gray-800"
       : "px-6 py-3 rounded-lg border text-gray-700 hover:bg-gray-100";
   
-  // Updated `sectionClasses` to use a more off-white color
-  const sectionClasses = theme === "dark" ? "bg-zinc-900" : "bg-gray-50";
   return (
-    <section id={id} className={mainClasses} > 
-      <Image
+    <section 
+      id={id} 
+      className={`${mainClasses}`}
+    >      <Image
         src="/image/linkedin.jpg"
         alt="Bill Xu"
         width={128}
