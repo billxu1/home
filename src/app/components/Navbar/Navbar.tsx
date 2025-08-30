@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "@/app/context/ThemeContext";
-const sections = ["about", "portfolio", "blog", "contact"];
+const sections = ["about", "portfolio", "blog"];
 
 const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme(); // <-- use global theme
@@ -50,10 +50,10 @@ const Navbar: React.FC = () => {
           {sections.map((id) => (
             <a
               key={id}
-              href={`#${id}`}
+              href={`${id}`}
               className={`hover:text-blue-500 transition-colors ${activeSection === id
-                  ? "text-blue-600 dark:text-blue-400 font-semibold"
-                  : ""
+                ? "text-blue-600 dark:text-blue-400 font-semibold"
+                : ""
                 }`}
             >
               {id.charAt(0).toUpperCase() + id.slice(1)}
@@ -94,8 +94,8 @@ const Navbar: React.FC = () => {
                 href={`#${id}`}
                 onClick={() => setMenuOpen(false)}
                 className={`hover:text-blue-500 transition-colors ${activeSection === id
-                    ? "text-blue-600 dark:text-blue-400 font-semibold"
-                    : ""
+                  ? "text-blue-600 dark:text-blue-400 font-semibold"
+                  : ""
                   }`}
               >
                 {id.charAt(0).toUpperCase() + id.slice(1)}

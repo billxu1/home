@@ -49,10 +49,10 @@ const Hero: React.FC<HeroProps> = ({ id, className }) => {
     theme === "dark"
       ? "px-6 py-3 rounded-lg border text-gray-200 border-gray-700 hover:bg-gray-800"
       : "px-6 py-3 rounded-lg border text-gray-700 hover:bg-gray-100";
-  
+
   return (
-    <section 
-      id={id} 
+    <section
+      id={id}
       className={`${mainClasses}`}
     >      <Image
         src="/image/linkedin.jpg"
@@ -65,7 +65,7 @@ const Hero: React.FC<HeroProps> = ({ id, className }) => {
       <h1 className={nameClasses}>Hi, I&apos;m Bill Xu</h1>
 
       <p className={subtitleClasses}>
-        This website is a work in progress!; todo = footer/blank links (duplication of view my work/down arrow)
+        This website is a work in progress!
         <br />
         Full-stack developer driven by curiosity, connection, and continuous
         improvement
@@ -104,27 +104,26 @@ const Hero: React.FC<HeroProps> = ({ id, className }) => {
       </div>
 
       <div className="flex gap-4 mt-8">
-        <a href="#work" className={workButtonClasses}>
-          View My Work
+        <a href="portfolio" className={workButtonClasses}>
+          View My Work (pages under construction)
         </a>
-        <a href="#blog" className={blogButtonClasses}>
-          Read My Blog
+        <a href="blog" className={blogButtonClasses}>
+          Read My Blog (pages under construction)
         </a>
       </div>
-    <div className="mt-8">
+      <div className="mt-8">
 
-      {/* Scroll-to-next button */}
-      <a
-        href="#projects"
-        className={`flex items-center justify-center w-12 h-12 rounded-lg  transition-colors duration-200 ${
-          theme === "dark"
+        {/* Scroll-to-next button */}
+        {/* <a
+          href="#projects"
+          className={`flex items-center justify-center w-12 h-12 rounded-lg  transition-colors duration-200 ${theme === "dark"
             ? "bg-gray-700 text-gray-300 hover:bg-gray-600"
             : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-        }`}
-      >
-        <span>↓</span>
-      </a>
-    </div>
+            }`}
+        >
+          <span>↓</span>
+        </a> */}
+      </div>
 
     </section>
   );
