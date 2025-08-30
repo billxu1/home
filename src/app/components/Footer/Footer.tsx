@@ -6,12 +6,12 @@ export default function Footer() {
     <footer className="bg-neutral-950 text-neutral-400 py-4">
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
         {/* Left side - copyright */}
-        <p className="text-xs">&copy; {new Date().getFullYear()} Your Name</p>
+        <p className="text-xs">&copy; {new Date().getFullYear()} Bill Xu</p>
 
         {/* Right side - social links */}
         <div className="flex items-center space-x-4">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/billxu1"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition-colors"
@@ -19,7 +19,7 @@ export default function Footer() {
             <Github size={18} />
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://linkedin.com/in/billxu44"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition-colors"
