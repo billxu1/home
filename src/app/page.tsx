@@ -8,12 +8,15 @@ import Footer from "./components/Footer/Footer";
 export default function Home() {
   const [isScrolling, setIsScrolling] = useState(false);
 
+  const sections = { hero: "hero", projects: "projects" };
+  const scrollUpMinDistance = 0; // px from top before snapping up
+
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       if (isScrolling) return;
 
-      const hero = document.getElementById("hero");
-      const projects = document.getElementById("projects");
+      const hero = document.getElementById(sections.hero);
+      const projects = document.getElementById(sections.projects);
       if (!hero || !projects) return;
 
       const heroRect = hero.getBoundingClientRect();
@@ -21,16 +24,12 @@ export default function Home() {
 
       let target: HTMLElement | null = null;
 
-      if (e.deltaY > 0) {
-        // Scroll down
-        if (heroRect.bottom > 0) {
-          target = projects; // snap Hero -> Projects
-        }
-      } else if (e.deltaY < 0) {
-        // Scroll up
-        if (projectsRect.top < window.innerHeight && projectsRect.top > 100) {
-          target = hero; // snap Projects -> Hero
-        }
+      if (e.deltaY > 0 && heroRect.bottom > 0) {
+        // Scroll down → snap Hero → Projects
+        target = projects;
+      } else if (e.deltaY < 0 && projectsRect.top > scrollUpMinDistance) {
+        // Scroll up → snap Projects → Hero
+        target = hero;
       }
 
       if (target) {
@@ -50,9 +49,9 @@ export default function Home() {
 
   return (
     <div>
-      <Hero id="hero" className="min-h-screen" />
-      <Projects id="projects" className="min-h-screen" />
-      <Footer /> {/* slim static footer */}
+      <Hero id={sections.hero} className="min-h-screen" />
+      <Projects id={sections.projects} className="min-h-screen" />
+      <Footer />
     </div>
   );
 }
