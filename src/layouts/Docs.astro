@@ -1,0 +1,55 @@
+---
+import "../styles/docs.css";
+
+interface Props {
+  title: string;
+  description: string;
+  crumb: string;
+  active?: "readme" | "work";
+}
+
+const { title, description, crumb, active } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="color-scheme" content="light dark" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="rail">
+        <a class="brand" href="/">~/bill</a>
+
+        <nav class="tree" aria-label="Site">
+          <a href="/" aria-current={active === "readme" ? "page" : undefined}>readme.md</a>
+          <a href="/work" aria-current={active === "work" ? "page" : undefined}>work/</a>
+        </nav>
+
+        <div class="rail-foot">
+          <p class="status">
+            <span class="dot" aria-hidden="true"></span>sometimes online
+          </p>
+          <p class="ext">
+            <a href="https://github.com/billxu1">github</a>
+            <a href="https://www.linkedin.com/in/billxu44/">linkedin</a>
+          </p>
+        </div>
+      </aside>
+
+      <main class="doc">
+        <p class="crumb">{crumb}</p>
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

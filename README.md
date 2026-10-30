@@ -1,65 +1,58 @@
-# Notes
-this has been updated to use nextjs
+# Personal website
 
-# next js
-```sh
-npx create-next-app@latest
-npm run dev
-npm run build && npx serve@latest out
-```
+Personal site with a docs feel: a short readme about me, the work on its own
+page, and the Saverr privacy policy. Built with [Astro](https://astro.build).
+No UI framework and no JavaScript at all — three static HTML pages, one CSS
+file.
 
-## some notes
-- The build CI step runs a build and deploys it to pages.
-- The DNS resolver is linked to a Route53 resolver on AWS (there exists an A record hardlinked to GitHub pages IP's).
-- The SSL certificate is provisioned by Github pages (managed through click ops) TODO: Use IaC to deploy AWS templates (private Github repo + vault setup tbd)
-
-
-# for vite
-- goto react-vite-storybook branch for the vite/typescript/react/storybook branch - CRA is deprecated
+## Commands
 
 ```sh
-npm create vite@latest my-app --template react
-mv my-app/* .
 npm install
-npm run dev
+npm run dev      # http://localhost:4321
+npm run build    # static output in dist/
+npm run preview  # serve dist/ locally
 ```
 
+## Structure
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-<details>
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+src/
+  layouts/Docs.astro          html shell, file-tree rail, page crumb
+  pages/index.astro           readme — title, about, now, contact
+  pages/work.astro            work — Saverr + smaller tools
+  pages/saverr/privacy.astro  Saverr privacy policy
+  styles/docs.css             the whole theme (colours, type, layout)
+public/
+  image/apps/                 Saverr screenshots
+  image/                      project screenshots
+  favicon.ico
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Routes: `/`, `/work`, `/saverr/privacy`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Editing content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Copy** lives in the page files: `index.astro` for the readme, `work.astro`
+  for the apps, `saverr/privacy.astro` for the policy.
+- **Navigation** (the file tree in the rail) is in `layouts/Docs.astro`.
+- **Colours, type and spacing** are CSS variables at the top of
+  `styles/docs.css`. The theme is dark only, on purpose.
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
+Pushing to `main` triggers `.github/workflows/deployment-workflow.yml`, which
+builds the site and publishes `dist/` to GitHub Pages.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Assets are referenced from the site root (`/image/...`), so the site expects to
+be served from a domain root (the Pages custom domain, currently configured in
+the repo's Pages settings — see the old CNAME entries in git history, e.g.
+`bxuwebsite.link`). If you ever deploy it under a subpath such as
+`https://<user>.github.io/home/`, set `base: "/home"` in `astro.config.mjs`
+and make the image paths base-aware.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-</details>
+- The DNS resolver is linked to a Route53 resolver on AWS (there is an A record
+  pointed at GitHub Pages' IPs).
+- The SSL certificate is provisioned by GitHub Pages (managed through click
+  ops). TODO: use IaC to deploy AWS templates (private GitHub repo + vault
+  setup tbd).

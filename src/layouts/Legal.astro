@@ -1,0 +1,40 @@
+---
+import "../styles/legal.css";
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+}
+
+const { title, description, noindex = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="article" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+  </head>
+  <body>
+    <header class="bar">
+      <a class="brand" href="/">Bill Xu</a>
+    </header>
+
+    <main class="sheet">
+      <slot />
+    </main>
+
+    <footer class="foot">
+      <span>Saverr · com.propertysaver.app</span>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,210 @@
+/* ---------------------------------------------------------------
+   Legal pages — a quiet, conventional document.
+   No mono type, no colour accents beyond a link blue: this is a
+   policy, not a design piece. Readable by default, printable.
+   --------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+
+  --bg: #ffffff;
+  --ink: #1f2937;
+  --muted: #4b5563;
+  --soft: #6b7280;
+  --rule: #e5e7eb;
+  --tint: #f9fafb;
+  --link: #1d4ed8;
+
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: #dbeafe;
+  color: var(--ink);
+}
+
+/* header / footer */
+.bar,
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  max-width: 44rem;
+  margin-inline: auto;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.8125rem;
+  color: var(--soft);
+}
+
+.bar {
+  border-bottom: 1px solid var(--rule);
+}
+
+.bar .brand {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.foot {
+  margin-top: 4rem;
+  border-top: 1px solid var(--rule);
+}
+
+/* document */
+.sheet {
+  max-width: 44rem;
+  margin-inline: auto;
+  padding: 3.5rem 1.5rem 1rem;
+}
+
+.app {
+  margin: 0;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+h1 {
+  margin: 0.6rem 0 0;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.dates {
+  margin: 0.9rem 0 0;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+/* summary */
+.summary {
+  margin: 2.25rem 0 0;
+  padding: 1.35rem 1.5rem;
+  background: var(--tint);
+  border: 1px solid var(--rule);
+  border-radius: 0.5rem;
+}
+
+.summary h2 {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.summary p {
+  margin: 0.5rem 0 0;
+}
+
+/* sections */
+section {
+  margin-top: 2.75rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+h2 .n {
+  margin-right: 0.5rem;
+  color: var(--muted);
+}
+
+section p {
+  margin: 0.75rem 0 0;
+}
+
+ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+}
+
+li + li {
+  margin-top: 0.4rem;
+}
+
+strong {
+  font-weight: 650;
+}
+
+.note {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+/* print: a policy should survive being printed */
+@media print {
+  .bar,
+  .foot {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+
+  .sheet {
+    padding: 0;
+    max-width: none;
+  }
+
+  .summary {
+    background: #fff;
+    border: 1px solid #000;
+  }
+
+  a {
+    color: #000;
+  }
+}
