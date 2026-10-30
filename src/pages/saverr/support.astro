@@ -1,0 +1,95 @@
+---
+import Legal from "../../layouts/Legal.astro";
+---
+
+<Legal
+  noindex
+  title="Support — Saverr"
+  description="Support for Saverr (com.propertysaver.app): where your data lives, backups, common questions and how to get in touch."
+>
+  <p class="app">Saverr</p>
+  <h1>Support</h1>
+  <p class="dates">For the Saverr app (com.propertysaver.app)</p>
+
+  <nav class="pagetabs" aria-label="Saverr pages">
+    <a href="/saverr/privacy">Privacy</a>
+    <a href="/saverr/support" aria-current="page">Support</a>
+  </nav>
+
+  <p class="lede">
+    Something not working, or a question the app doesn&rsquo;t answer? The
+    questions below cover most of it — if not, get in touch.
+  </p>
+
+  <div class="contact">
+    <h2>Get in touch</h2>
+    <p>
+      Tell me what happened and I&rsquo;ll get back to you. For bugs, it helps
+      to include your device, your OS version, the app version, and what you did
+      just before it went wrong.
+    </p>
+    <p class="contact-line">
+      <strong>B Xu</strong><br />
+      <a href="mailto:bxu1.developer@gmail.com">bxu1.developer@gmail.com</a>
+    </p>
+  </div>
+
+  <section>
+    <h2>Common questions</h2>
+
+    <details>
+      <summary>Where is my data stored?</summary>
+      <p>
+        On your device, in the app&rsquo;s private storage. Saverr has no
+        account and no server, so your shortlist and notes are never uploaded
+        anywhere.
+      </p>
+    </details>
+
+    <details>
+      <summary>How do I back up my shortlist?</summary>
+      <p>
+        Use the backup screen to export your shortlist as a JSON file, then
+        choose where it goes — Files, email, a cloud drive. Keep it somewhere
+        you trust: it contains your listings, details and notes.
+      </p>
+    </details>
+
+    <details>
+      <summary>How do I delete a listing?</summary>
+      <p>
+        Open the listing and use the bin icon in the top right. The listing and
+        its notes are removed from your device.
+      </p>
+    </details>
+
+    <details>
+      <summary>What happens when I tap &ldquo;Open listing&rdquo;?</summary>
+      <p>
+        The link is handed to your browser, which opens the original listing
+        site. That site&rsquo;s own terms and privacy policy apply from there.
+      </p>
+    </details>
+
+    <details>
+      <summary>Does Saverr need an internet connection?</summary>
+      <p>
+        No. The app works offline. The only time it leaves your device is when
+        you open a listing in your browser, or export a backup.
+      </p>
+    </details>
+
+    <details>
+      <summary>Is there an account, or a way to sync between devices?</summary>
+      <p>
+        There is no account, and no sync — everything stays on the device it was
+        entered on. To move a shortlist, export a backup file and take it with
+        you.
+      </p>
+    </details>
+  </section>
+
+  <p class="note">
+    Saverr is made by Bill Xu. What the app stores, and why, is covered in the <a href="/saverr/privacy">privacy policy</a>.
+  </p>
+</Legal>

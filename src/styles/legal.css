@@ -118,6 +118,89 @@ h1 {
   color: var(--muted);
 }
 
+/* page switch (privacy / support) */
+.pagetabs {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+  font-size: 0.875rem;
+}
+
+.pagetabs a {
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.pagetabs a:hover {
+  color: var(--ink);
+}
+
+.pagetabs a[aria-current="page"] {
+  border-bottom-color: var(--rule);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* contact block */
+.contact {
+  margin-top: 2rem;
+  padding: 1.35rem 1.5rem;
+  border: 1px solid var(--rule);
+  border-radius: 0.5rem;
+  background: var(--tint);
+}
+
+.contact h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.contact p {
+  margin: 0.5rem 0 0;
+}
+
+.contact-line {
+  margin-top: 1.1rem;
+  line-height: 1.5;
+}
+
+.contact-line strong {
+  font-weight: 600;
+}
+
+.contact-line a {
+  font-size: 1.0625rem;
+}
+
+/* FAQ */
+details {
+  margin-top: 0.75rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+summary::marker {
+  color: var(--soft);
+}
+
+details p {
+  margin: 0.6rem 0 0;
+}
+
+.lede {
+  margin: 1.25rem 0 0;
+  color: var(--muted);
+}
+
 /* summary */
 .summary {
   margin: 2.25rem 0 0;

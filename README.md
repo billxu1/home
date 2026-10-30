@@ -21,7 +21,8 @@ src/
   layouts/Docs.astro          html shell, file-tree rail, page crumb
   pages/index.astro           readme — title, about, now, contact
   pages/work.astro            work — Saverr + smaller tools
-  pages/saverr/privacy.astro  Saverr privacy policy
+  pages/saverr/privacy.astro  Saverr privacy policy (unlinked, noindex)
+  pages/saverr/support.astro  Saverr support (unlinked, noindex)
   styles/docs.css             the whole theme (colours, type, layout)
 public/
   image/apps/                 Saverr screenshots
@@ -29,7 +30,8 @@ public/
   favicon.ico
 ```
 
-Routes: `/`, `/work`, `/saverr/privacy`.
+Routes: `/`, `/work`, plus `/saverr/privacy` and `/saverr/support`
+(unlinked and noindex — these exist for the app stores).
 
 ### Editing content
 
